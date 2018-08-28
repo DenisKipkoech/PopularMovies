@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">PopularMoviesStages1</string>
+    <string name="poster_description">Movie Poster</string>
+
+    <!--movie_detail-->
+    <string name="movie_description">Description</string>
+
+    <!--queryutils-->
+    <string name="tag">Movies</string>
+    <string name="url_error">Error creating Url</string>
+    <string name="json_error">Error retrieving movie json results</string>
+    <string name="response_error">Error response code:</string>
+    <string name="inputstream_error">Error closing inputstream</string>
+    <!--theMoviedb api url-->
+    <string name="popular_base_url">http://api.themoviedb.org/3/movie/popular?api_key=</string>
+    <string name="top_rated_base_url">http://api.themoviedb.org/3/movie/top_rated?api_key=</string>
+    <string name="base_poster_url">http://image.tmdb.org/t/p/w185</string>
+    <string name="response_array">results</string>
+    <!--insert api key here-->
+    <string name="api_key">7bdc0adfb0ccb7eadb85e9fae2e84742</string>
+
+</resources>
