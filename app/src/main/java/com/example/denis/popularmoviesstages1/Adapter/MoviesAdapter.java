@@ -1,33 +1,57 @@
 package com.example.denis.popularmoviesstages1.Adapter;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.denis.popularmoviesstages1.R;
+import com.example.denis.popularmoviesstages1.data.Movie;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 /**
  * Created by denis on 24/08/18.
  */
 
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>{
+    private Context context;
+    private ArrayList<Movie> movies;
+
+    public MoviesAdapter(Context context, ArrayList<Movie> movies) {
+        this.context = context;
+        this.movies = movies;
+    }
 
     @NonNull
     @Override
     public MovieViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View view  = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.list_movie, parent, false);
+        return new MovieViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MovieViewHolder holder, int position) {
-
+        Picasso.with(context).setLoggingEnabled(true);
+        Picasso.with(context)
+                .load(movies.get(position).getPoster_url())
+                .into(holder.poster_view);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return movies.size();
+    }
+
+    public void updateData(ArrayList<Movie> movies){
+        movies.clear();
+        movies.addAll(movies);
+        notifyDataSetChanged();
     }
 
     public class MovieViewHolder extends RecyclerView.ViewHolder{
