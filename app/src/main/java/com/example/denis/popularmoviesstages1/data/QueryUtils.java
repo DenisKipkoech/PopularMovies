@@ -100,8 +100,7 @@ public class QueryUtils {
 
         try{
             JSONObject responseObject = new JSONObject(jsonResponse);
-            JSONArray moviesArray = new JSONArray(responseObject.
-                    getJSONArray(String.valueOf(R.string.response_array)));
+            JSONArray moviesArray = responseObject.getJSONArray("results");
 
             for (int i=0; i < moviesArray.length(); i++){
                 JSONObject currentMovie = moviesArray.getJSONObject(i);
@@ -109,10 +108,11 @@ public class QueryUtils {
                 String title = currentMovie.getString("title");
                 String poster_path = currentMovie.getString("poster_path");
                 String synopsis = currentMovie.getString("overview");
-                String user_rating = currentMovie.getString("voter_average");
+                String user_rating = currentMovie.getString("vote_average");
                 String release_date = currentMovie.getString("release_date");
 
-                String poster_url = String.valueOf(R.string.base_poster_url)+poster_path;
+                String poster_url = createUrl(
+                        "http://image.tmdb.org/t/p/w342"+poster_path).toString();
 
                 Movie movie = new Movie(title, poster_url, synopsis, user_rating, release_date);
                 moviesList.add(movie);
@@ -123,17 +123,4 @@ public class QueryUtils {
         }
         return moviesList;
     }
-
-    public ArrayList<String> extractPosters(ArrayList<Movie> movies){
-        ArrayList<String> posterUrls = new ArrayList<>();
-        if (movies != null && !movies.isEmpty()){
-            String url_poster = null;
-            for (Movie movie : movies){
-                url_poster = movie.getPoster_url();
-                posterUrls.add(url_poster);
-            }
-        }
-        return posterUrls;
-    }
-
 }

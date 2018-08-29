@@ -3,6 +3,7 @@ package com.example.denis.popularmoviesstages1.Adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
     private Context context;
     private ArrayList<Movie> movies;
 
+
     public MoviesAdapter(Context context, ArrayList<Movie> movies) {
         this.context = context;
         this.movies = movies;
@@ -40,6 +42,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         Picasso.with(context).setLoggingEnabled(true);
         Picasso.with(context)
                 .load(movies.get(position).getPoster_url())
+                .placeholder(R.mipmap.ic_launcher)
                 .into(holder.poster_view);
     }
 
@@ -48,11 +51,6 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         return movies.size();
     }
 
-    public void updateData(ArrayList<Movie> movies){
-        movies.clear();
-        movies.addAll(movies);
-        notifyDataSetChanged();
-    }
 
     public class MovieViewHolder extends RecyclerView.ViewHolder{
         ImageView poster_view;
