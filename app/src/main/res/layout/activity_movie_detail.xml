@@ -19,8 +19,7 @@
 
     <TextView
         android:id="@+id/rating_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/movieText"
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         app:layout_constraintStart_toEndOf="@+id/poster_view"
@@ -29,8 +28,7 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/movieText"
         android:layout_marginStart="28dp"
         android:layout_marginTop="28dp"
         android:text="@string/movie_description"
@@ -49,8 +47,7 @@
 
     <TextView
         android:id="@+id/release_date_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/movieText"
         android:layout_marginStart="8dp"
         android:layout_marginTop="92dp"
         app:layout_constraintStart_toEndOf="@+id/poster_view"
