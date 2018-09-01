@@ -11,11 +11,10 @@
         android:layout_width="185dp"
         android:layout_height="185dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
         android:contentDescription="@string/poster_description"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+        app:srcCompat="@drawable/ic_launcher_foreground"
+        tools:layout_editor_absoluteY="45dp" />
 
     <TextView
         android:id="@+id/rating_view"
@@ -53,5 +52,15 @@
         app:layout_constraintStart_toEndOf="@+id/poster_view"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="September 2015" />
+
+    <TextView
+        android:id="@+id/title_view"
+        style="@style/movieText"
+        android:textSize="24sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        tools:text="Avengers"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
