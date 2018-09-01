@@ -1,9 +1,15 @@
 <resources>
-    <string name="app_name">PopularMoviesStages1</string>
+    <string name="app_name">Popular Movies</string>
     <string name="poster_description">Movie Poster</string>
 
     <!--movie_detail-->
     <string name="movie_description">Description</string>
+    <string name="intent_title">title</string>
+    <string name="intent_release">release_date</string>
+    <string name="intent_rating">user_rating</string>
+    <string name="intent_poster">poster_path</string>
+    <string name="intent_plot">synopsis</string>
+
 
     <!--queryutils-->
     <string name="tag">Movies</string>
@@ -12,6 +18,13 @@
     <string name="response_error">Error response code:</string>
     <string name="inputstream_error">Error closing input stream</string>
 
+    <!--spinner-->
+    <string-array name="sort_array">
+        <item >Popular</item>
+        <item>Top Rated</item>
+    </string-array>
+
+    <string name="popular">Popular</string>
     <!--insert api key here-->
     <string name="api_key">7bdc0adfb0ccb7eadb85e9fae2e84742</string>
 

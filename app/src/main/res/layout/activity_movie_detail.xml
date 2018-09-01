@@ -8,44 +8,24 @@
 
     <ImageView
         android:id="@+id/poster_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="185dp"
+        android:layout_height="185dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="@string/poster_description"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/poster_description"
         app:srcCompat="@drawable/ic_launcher_foreground" />
-
-    <TextView
-        android:id="@+id/year_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        tools:text="2015"
-        app:layout_constraintStart_toEndOf="@+id/poster_view"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/movie_duration_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        tools:text="120min"
-        app:layout_constraintStart_toEndOf="@+id/poster_view"
-        app:layout_constraintTop_toBottomOf="@+id/year_view" />
 
     <TextView
         android:id="@+id/rating_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
-        tools:text="8.1/10"
         app:layout_constraintStart_toEndOf="@+id/poster_view"
-        app:layout_constraintTop_toBottomOf="@+id/movie_duration_view" />
+        app:layout_constraintTop_toBottomOf="@+id/release_date_view"
+        tools:text="8.1/10" />
 
     <TextView
         android:id="@+id/textView6"
@@ -59,8 +39,8 @@
 
     <TextView
         android:id="@+id/movie_synopsis_view"
-        android:layout_width="59dp"
-        android:layout_height="18dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="12dp"
         tools:text="TextView"
@@ -71,9 +51,10 @@
         android:id="@+id/release_date_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="12dp"
-        tools:text="September 2015"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/movie_synopsis_view" />
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="92dp"
+        app:layout_constraintStart_toEndOf="@+id/poster_view"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="September 2015" />
+
 </android.support.constraint.ConstraintLayout>

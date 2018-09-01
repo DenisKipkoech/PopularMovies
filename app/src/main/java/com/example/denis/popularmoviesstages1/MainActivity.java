@@ -25,10 +25,11 @@ public class MainActivity extends AppCompatActivity implements
 
     private static final int MOVIES_LOADER_ID = 1;
 //    insert api key here
+    private String api_key = "7bdc0adfb0ccb7eadb85e9fae2e84742";
     private String top_rated_url =
-            "http://api.themoviedb.org/3/movie/popular?api_key=7bdc0adfb0ccb7eadb85e9fae2e84742";
+            "http://api.themoviedb.org/3/movie/popular?api_key="+api_key;
     private String popular_url =
-            "http://api.themoviedb.org/3/movie/popular?api_key=7bdc0adfb0ccb7eadb85e9fae2e84742";
+            "http://api.themoviedb.org/3/movie/popular?api_key="+api_key;
     private static final int grid_span_count = 2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,10 @@ public class MainActivity extends AppCompatActivity implements
                 grid_span_count);
         recyclerView.setLayoutManager(layoutManager);
 
+       getmovies();
+    }
+
+    private void getmovies(){
         ConnectivityManager connMgr;
         connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -78,4 +83,5 @@ public class MainActivity extends AppCompatActivity implements
 
 
     }
+
 }
