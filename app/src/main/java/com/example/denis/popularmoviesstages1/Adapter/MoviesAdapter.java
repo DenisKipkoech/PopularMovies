@@ -66,6 +66,10 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         return movies.size();
     }
 
+    public void updateData(){
+        movies.clear();
+        notifyDataSetChanged();
+    }
 
     public class MovieViewHolder extends RecyclerView.ViewHolder{
         ImageView poster_view;

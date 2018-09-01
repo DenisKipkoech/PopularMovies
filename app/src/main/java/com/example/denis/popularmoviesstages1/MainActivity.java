@@ -9,7 +9,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+
 
 import com.example.denis.popularmoviesstages1.Adapter.MoviesAdapter;
 import com.example.denis.popularmoviesstages1.data.Movie;
@@ -23,11 +26,13 @@ public class MainActivity extends AppCompatActivity implements
     public RecyclerView recyclerView;
     public MoviesAdapter adapter;
 
+
+    private String selection;
     private static final int MOVIES_LOADER_ID = 1;
 //    insert api key here
-    private String api_key = "7bdc0adfb0ccb7eadb85e9fae2e84742";
+    private String api_key = "";
     private String top_rated_url =
-            "http://api.themoviedb.org/3/movie/popular?api_key="+api_key;
+            "http://api.themoviedb.org/3/movie/top_rated?api_key="+api_key;
     private String popular_url =
             "http://api.themoviedb.org/3/movie/popular?api_key="+api_key;
     private static final int grid_span_count = 2;
@@ -42,37 +47,28 @@ public class MainActivity extends AppCompatActivity implements
                 grid_span_count);
         recyclerView.setLayoutManager(layoutManager);
 
-       getmovies();
     }
 
     private void getmovies(){
-        ConnectivityManager connMgr;
-        connMgr = (ConnectivityManager)
-                getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-
-        if (networkInfo != null && networkInfo.isConnected()) {
-            LoaderManager loaderManager = getLoaderManager();
-
-            loaderManager.initLoader(MOVIES_LOADER_ID, null, this);
-        } else {
-            View loadingIndicator = findViewById(R.id.progressBar);
-            loadingIndicator.setVisibility(View.GONE);
-
+        LoaderManager loaderManager = getLoaderManager();
+        if (loaderManager != null){
+            loaderManager.destroyLoader(MOVIES_LOADER_ID);
         }
+        loaderManager.initLoader(MOVIES_LOADER_ID, null, this);
     }
 
     @Override
     public Loader<List<Movie>> onCreateLoader(int id, Bundle args) {
-        return new MoviesLoader(getApplicationContext(), popular_url);
+        return new MoviesLoader(getApplicationContext(), selection);
     }
 
     @Override
     public void onLoadFinished(Loader<List<Movie>> loader, List<Movie> data) {
-        View loadingIndicator = findViewById(R.id.progressBar);
-        loadingIndicator.setVisibility(View.GONE);
+
         if (data != null && !data.isEmpty()) {
+            if (adapter != null){
+                adapter.updateData();
+            }
             adapter = new MoviesAdapter(this, (ArrayList<Movie>) data);
             recyclerView.setAdapter(adapter);
         }
@@ -84,4 +80,26 @@ public class MainActivity extends AppCompatActivity implements
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.option, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_popular){
+            selection = popular_url;
+            getmovies();
+
+        }
+        if (id == R.id.action_top_rated){
+            selection = top_rated_url;
+            getmovies();
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

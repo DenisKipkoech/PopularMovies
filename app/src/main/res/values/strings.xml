@@ -25,6 +25,7 @@
     </string-array>
 
     <string name="popular">Popular</string>
+    <string name="top_rated">Top Rated</string>
     <!--insert api key here-->
     <string name="api_key">7bdc0adfb0ccb7eadb85e9fae2e84742</string>
 
