@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout>
+    <data>
+        <variable
+            name="movie"
+            type="com.example.denis.popularmoviesstages1.data.Movie"/>
+    </data>
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -24,6 +30,7 @@
         android:layout_marginTop="12dp"
         app:layout_constraintStart_toEndOf="@+id/poster_view"
         app:layout_constraintTop_toBottomOf="@+id/release_date_view"
+        android:text="@{movie.user_rating}"
         tools:text="8.1/10" />
 
     <TextView
@@ -42,6 +49,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="12dp"
         tools:text="TextView"
+        android:text="@{movie.plot_synopsis}"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -52,6 +60,7 @@
         android:layout_marginTop="92dp"
         app:layout_constraintStart_toEndOf="@+id/poster_view"
         app:layout_constraintTop_toTopOf="parent"
+        android:text="@{movie.release_date}"
         tools:text="September 2015" />
 
     <TextView
@@ -62,6 +71,8 @@
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:text="@{movie.title}"
         tools:text="Avengers" />
 
 </android.support.constraint.ConstraintLayout>
+</layout>
