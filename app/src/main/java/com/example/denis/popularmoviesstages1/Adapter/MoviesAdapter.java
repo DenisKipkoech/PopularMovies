@@ -40,7 +40,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
 
     @Override
     public void onBindViewHolder(@NonNull MovieViewHolder holder, int position) {
-        final Movie movie = movies.get(position);
+        final Movie movie = movies.get(holder.getAdapterPosition());
         Picasso.with(context).setLoggingEnabled(true);
         Picasso.with(context)
                 .load(movies.get(position).getPoster_url())

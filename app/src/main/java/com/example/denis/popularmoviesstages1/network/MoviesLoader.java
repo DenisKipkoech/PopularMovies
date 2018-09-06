@@ -4,7 +4,6 @@ import android.content.AsyncTaskLoader;
 import android.content.Context;
 
 import com.example.denis.popularmoviesstages1.data.Movie;
-import com.example.denis.popularmoviesstages1.data.QueryUtils;
 
 import java.util.ArrayList;
 import java.util.List;

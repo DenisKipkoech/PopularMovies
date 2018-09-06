@@ -1,8 +1,9 @@
-package com.example.denis.popularmoviesstages1.data;
+package com.example.denis.popularmoviesstages1.network;
 
 import android.util.Log;
 
 import com.example.denis.popularmoviesstages1.R;
+import com.example.denis.popularmoviesstages1.data.Movie;
 
 import org.json.JSONArray;
 import org.json.JSONException;
