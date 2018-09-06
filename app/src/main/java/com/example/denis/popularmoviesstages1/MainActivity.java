@@ -1,10 +1,9 @@
 package com.example.denis.popularmoviesstages1;
 
 import android.app.LoaderManager;
-import android.content.Context;
 import android.content.Loader;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -30,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements
     private String selection;
     private static final int MOVIES_LOADER_ID = 1;
 //    insert api key here
-    private String api_key = "";
+    private String api_key = "7bdc0adfb0ccb7eadb85e9fae2e84742";
     private String top_rated_url =
             "http://api.themoviedb.org/3/movie/top_rated?api_key="+api_key;
     private String popular_url =

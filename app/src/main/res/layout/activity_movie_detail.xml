@@ -4,6 +4,11 @@
         <variable
             name="movie"
             type="com.example.denis.popularmoviesstages1.data.Movie"/>
+
+        <variable
+            name="posterViewModel"
+            type="com.example.denis.popularmoviesstages1.Adapter.PosterViewModel"/>
+
     </data>
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -14,6 +19,7 @@
 
     <ImageView
         android:id="@+id/poster_view"
+        app:imageUrl="@{movie.poster_url}"
         android:layout_width="185dp"
         android:layout_height="185dp"
         android:layout_marginStart="16dp"
